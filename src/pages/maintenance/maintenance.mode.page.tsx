@@ -11,6 +11,7 @@ const MaintenanceModePage = () => {
             justifyContent:"center",
             alignItems:"center",
             flexDirection:"column"
+            
         }}>
             <Typography sx={{
                 fontSize:"30px",
