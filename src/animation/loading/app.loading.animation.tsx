@@ -12,7 +12,7 @@ type ISupport = {
 const Bench = (props: IBench) => {
     return (
         <Box sx={{
-            position: "absolute",
+            position: "relative",
             width: "280px",
             height: "10px",
             backgroundColor: "#476098",
@@ -457,14 +457,80 @@ const Human = () => {
     }
 
     const Head = () => {
+        const UpperLip = () => {
+            return(
+                <Box sx={{
+                    position:"absolute",
+                    backgroundColor:"#fda76d",
+                    width:"5px",
+                    height:"6px",
+                    top:"-10%",
+                    left:"55%",
+                    borderRadius:"5px",
+                    zIndex:10
+                }}>
+                </Box>
+            )
+        }
+        const LowerLip = () => {
+            return(
+                <Box sx={{
+                    position:"absolute",
+                    backgroundColor:"#fda76d",
+                    width:"5px",
+                    height:"6px",
+                    top:"-10%",
+                    left:"50%",
+                    borderRadius:"5px",
+                    zIndex:10,
+                    animation:"LowerLipAnim 3s infinite linear",
+                    '@keyframes LowerLipAnim': {
+                        "0%": {
+                            left:"35%",
+                        },
+                        "40%": {
+                            left:"35%",
+                        },
+                        "50%": {
+                            left:"45%",
+                            top:"-10%"
+                        },
+                        "65%": {
+                            left:"45%",
+                        },
+                        "100%": {
+                            left:"35%",
+                        }
+                    }
+                }}>
+                </Box>
+            )
+        }
+
+        const Hair = () => {
+            return(
+                <Box sx={{
+                    position:"absolute",
+                    backgroundColor:"#212121",
+                    width:"16px",
+                    height:"46px",
+                    top:"-10%",
+                    left:"90%",
+                    borderRadius:"2px",
+                    zIndex:10,
+                }}>
+                </Box>
+            )
+        }
+
         return(
             <Box sx={{
                 position:"absolute",
                 backgroundColor:"#Fda76d",
                 top:"-400%",
+                left:"62%",
                 width:"66px",
                 height:"40px",
-                left:"59%",
                 zIndex: 90,
                 borderRadius: "5px",
                 animation:"HeadAnim 3s infinite linear",
@@ -497,7 +563,11 @@ const Human = () => {
                         transform:"rotate(0deg)",
                     }
                 }
-            }}/>
+            }}>
+                <UpperLip/>
+                <LowerLip/>
+                <Hair/>
+            </Box>
         )
     }
 
@@ -518,7 +588,9 @@ const Human = () => {
 
 const AppLoadingAnimation = () => {
     return (
-        <>
+        <Box sx={{
+            position:"relative"
+        }}>
             <Bench>
                 <Support>
                     <Stand/>
@@ -526,7 +598,7 @@ const AppLoadingAnimation = () => {
                 <Hanger/>
                 <Human/>
             </Bench>
-        </>
+        </Box>
     )
 }
 
